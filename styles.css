@@ -1,0 +1,354 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+.ubuntu-mono-regular {
+  font-family: "Ubuntu Mono", monospace;
+}
+
+body {
+  font-family: "Ubuntu Mono", monospace;
+  padding: 3rem;
+  line-height: 1.5;
+  background-color: var(--bs-gray-800);
+  background-image: 
+    radial-gradient(#4a5159 0.45px, transparent 0.45px), 
+    radial-gradient(#4a5159 0.45px, #343a40 0.45px);
+  background-size: 18px 18px;
+  background-position: 0 0,9px 9px;
+  color: var(--bs-gray-100);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (max-width: 850px) {
+  body {
+    padding: 1.6rem;
+  }
+}
+
+.animated-calc::after {
+  content: "calc";
+  display: inline-block;
+  animation: cycleNumbers 2s infinite;
+}
+
+@keyframes cycleNumbers {
+  0% { content: "calc"; }
+  5% { content: "c4lc"; }
+  10% { content: "ca1c"; }
+  15% { content: "calc"; }
+  20% { content: "(al)"; }
+  25% { content: "calc"; }
+  30% { content: "calc"; }
+  35% { content: "ca1c"; }
+  40% { content: "calc"; }
+  45% { content: "c4lc"; }
+  50% { content: "c4lc"; }
+  55% { content: "c4lc"; }
+  60% { content: "calc"; }
+  65% { content: "(al)"; }
+  70% { content: "ca1c"; }
+  75% { content: "calc"; }
+  80% { content: "(4l)"; }
+  85% { content: "(41)"; }
+  90% { content: "c41c"; }
+  95% { content: "c4lc"; }
+  100% { content: "calc"; }
+}
+
+
+
+.container {
+  max-width: 900px;
+  margin: 1em auto;
+  padding: 1em;
+  background: var(--bs-gray-900);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.intro {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em 0;
+  font-size: 1.2em;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.toggle {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px; 
+  flex-basis: 100%;
+}
+
+.toggle-label {
+  position: relative;
+  top: 1.4em;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bs-gray-700);
+  transition: .4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px; 
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--bs-gray-700);
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px); 
+}
+
+.form-section, .result-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.form-section {
+  border-right: 1px solid #333;
+}
+
+.result-section {
+  text-align: center;
+}
+
+h1 {
+  color: #FFD700;
+  text-align: center;
+  flex-basis: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--bs-pink);
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: var(--bs-pink);
+  text-decoration: underline;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: none;
+  background: var(--bs-gray-800);
+  color: var(--bs-gray-100);
+}
+
+.result {
+  font-size: 1.4em;
+  color: var(--bs-white);
+  margin-top: 1em;
+  text-wrap: balance;
+}
+
+.visualisation {
+  margin: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  min-height: 50px;
+}
+
+.icon {
+  font-size: 1rem;
+  margin: 0.1em;
+}
+
+.disclaimer {
+  font-size: 1rem;
+  color: #aaa;
+  text-align: center;
+  margin-top: 20px;
+  display: none;
+}
+
+.tooltip-inner {
+  max-width: 285px;
+  text-align: left;
+  line-height: 1.2em;
+  padding: 10px;
+  font-family: "Ubuntu Mono", monospace;
+}
+
+.advanced {
+  text-align: center;
+  margin-top: 30px;
+  flex-basis: 100%;
+}
+
+.advanced a {
+  color: #FFD700 !important;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.advanced a:hover {
+  text-decoration: underline;
+}
+
+.modal-content {
+  background-color: var(--bs-gray-900);
+  color: var(--bs-gray-200);
+  padding: 0.6em;
+}
+
+.modal-header {
+  border: none;
+}
+
+.modal-header .btn-close {
+  filter: invert(1);
+}
+
+.modal-body label {
+  margin-top: 15px;
+}
+
+.modal-footer {
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .form-section {
+    border-right: none;
+    border-bottom: 1px solid #333;
+  }
+
+  .icon {
+  font-size: 0.8rem;
+  margin: 0.05em;
+  }
+
+}
+
+.ad-banner {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+  padding: 1em 0;
+}
+
+.ad-banner a:hover,
+.ad-banner a:focus,
+.ad-banner a:active {
+  text-decoration: none;
+}
+
+.ad-banner-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--bs-black); /* Ensure black background */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" viewBox="0 0 400 100"><path d="M0 50 Q100 0, 200 50 T400 50" stroke="white" fill="none" stroke-opacity="0.12" stroke-width="2" /></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  margin: 1em 1em 0 0;
+  padding: 1.4em;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 2px;
+  text-decoration: none;
+  gap: 1.6em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.ad-banner-logo {
+  max-height: 50px;
+  margin-left: 1em;
+}
+
+.ad-banner-logo:hover {
+  transform: scale(1.05);
+}
+
+.ad-banner-heading {
+  font-family: "Georgia", serif;
+  font-size: 1.2rem; 
+  margin-bottom: 0.8em;
+  color: var(--bs-gray-100);
+  text-align: left;
+}
+
+.ad-banner-subtext {
+  font-size: 1rem;
+  font-family: "Arial", serif;
+  color: var(--bs-gray-400);
+  text-align: left;
+}
+
+.ad-banner-link:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+footer {
+  text-align: center;
+}

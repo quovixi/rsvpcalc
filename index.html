@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSVPcalc</title>
+  <meta property="og:title" content="RSVPcalc | Made by Vicky Carmichael" />
+  <meta property="og:description" content="Forecast attendance at your invite-only event. Work forwards from invites sent, or backwards from places to fill." />
+  <meta property="og:url" content="https://rsvpcalc.quovixi.com/" />
+  <meta property="og:image" content="https://rsvpcalc.quovixi.com/assets/og.jpg" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/1cafd556b6.js" crossorigin="anonymous"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+  <main>
+    <h1>RSVP<span class="animated-calc"></span></h1>
+    <div class="intro">
+      <p>Forecast attendance at your invite-only event. Work forwards from invites sent, or backwards from places to fill.</p>
+    </div>
+    <div class="container">
+      <div class="toggle">
+        <span class="toggle-label">Backwards</span>
+        <label class="switch">
+          <input type="checkbox" id="toggleSwitch">
+          <span class="slider"></span>
+        </label>
+        <span class="toggle-label">Forwards</span>
+      </div>
+      <div class="form-section">
+        <div id="forwardsForm" style="display: block;">
+          <label for="invitesSent">How many invitations will you send?</label>
+          <input type="number" id="invitesSent" placeholder="100">
+
+          <label for="reminders">How many reminders will you send? <span class="tooltip-trigger" data-bs-toggle="tooltip" title="Rounds of reminders, rather than individual reminder emails"><i class="fa-solid fa-circle-question fa-xs"></i></span></label>
+          <input type="number" id="reminders" placeholder="1">
+
+          <label for="averageGuests">How many guests will each attendee bring? <span class="tooltip-trigger" data-bs-toggle="tooltip" title="The average number of additional people each attendee is expected to bring"><i class="fa-solid fa-circle-question fa-xs"></i></span></label>
+          <input type="number" id="averageGuests" placeholder="0">
+        </div>
+
+        <div id="backwardsForm" style="display: none;">
+          <label for="targetAttendance">How many places do you need to fill?</label>
+          <input type="number" id="targetAttendance" placeholder="100">
+
+          <label for="remindersBackwards">How many reminders will you send? <span class="tooltip-trigger" data-bs-toggle="tooltip" title="Rounds of reminders, rather than individual reminder emails"><i class="fa-solid fa-circle-question fa-xs"></i></span></label>
+          <input type="number" id="remindersBackwards" placeholder="1">
+
+          <label for="averageGuestsBackwards">How many guests will each attendee bring? <span class="tooltip-trigger" data-bs-toggle="tooltip" title="The average number of additional people each attendee is expected to bring"><i class="fa-solid fa-circle-question fa-xs"></i></span></label>
+          <input type="number" id="averageGuestsBackwards" placeholder="0">
+        </div>
+
+        <div class="advanced">
+          <a data-bs-toggle="modal" data-bs-target="#advancedModal"><i class="fa-solid fa-wrench fa-2xs"></i> Tweak the formula</a>
+        </div>
+      </div>
+
+      <div class="result-section">
+        <div class="result" id="resultDisplay">Results will appear here&hellip;</div>
+        <div id="visualisation" class="visualisation"></div>
+        <p class="disclaimer">What is this? <span class="tooltip-trigger" data-bs-toggle="tooltip" title="A fun visual representation of attendees, no responses, and no-shows in proportion."><i class="fa-solid fa-circle-question fa-sm"></i></span></p>
+      </div>
+
+      <div class="modal fade" id="advancedModal" tabindex="-1" aria-labelledby="advancedModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="advancedModalLabel">Advanced settings</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+            </div>
+            <div class="modal-body">
+              <label for="responseRate">Response rate (%)</label>
+              <input type="number" id="responseRate" value="50">
+
+              <label for="attendanceRate">Attendance rate (%)</label>
+              <input type="number" id="attendanceRate" value="70">
+
+              <label for="reminderEffectiveness">Reminder effectiveness (%)</label>
+              <input type="number" id="reminderEffectiveness" value="15">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="saveSettings()" data-bs-dismiss="modal">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ad-banner">
+      <a href="https://io.rsvp/" target="_blank" class="ad-banner-link">
+          <img src="assets/io-logo.svg" alt="IO RSVP Logo" class="ad-banner-logo">
+          <div class="ad-banner-text">
+              <h1 class="ad-banner-heading">Simplify sending & chasing invites</h1>
+              <p class="ad-banner-subtext">Your bespoke RSVP platform for high-end events, crafted by the experts in event registration</p>
+          </div>
+      </a>
+    </div>
+    <footer class="mt-3">
+      <i class="fa-regular fa-copyright fa-xs"></i> Vicky Carmichael, <span id="year"></span>. Find me on <a href="https://www.linkedin.com/in/vickycarmichael/" target="_blank">LinkedIn</a> and see my <a href="https://quovixi.com">other projects</a>.
+    </footer>
+  </main>
+  <script type="module" src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+        new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+    });
+  </script>
+</body>
+</html>
+
