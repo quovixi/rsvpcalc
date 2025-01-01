@@ -359,6 +359,34 @@ input {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
-footer {
-  text-align: center;
+.divider-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; 
+  padding: 1rem;
+  font-size: 1rem;
+  text-align: center; 
+}
+
+.divider-footer div {
+  display: flex;
+  gap: 1.5rem; 
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .divider-footer {
+      font-size: 0.9rem;
+  }
+}
+
+.divider-footer a {
+  text-decoration: none;
+  color: #FEBA3C;
+}
+
+.divider-footer p {
+  margin: 0;
 }
